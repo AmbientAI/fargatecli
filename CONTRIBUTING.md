@@ -21,19 +21,28 @@ email and Google Hangouts at john@pignata.com.
 
 ## Setup
 
-- Ensure you're using golang 1.9+.
+- Ensure you're using golang 1.9+. At Ambient, we're currently using `go1.16.3 linux/amd64`.
 
   ```console
   go version
   ```
 
 - Install [`dep`][dep] if not present on your system. See their [installation
-  instructions][dep-install] and [releases page][dep-releases] for details.
+  instructions][dep-install] and [releases page][dep-releases] for details. You will need to
+  create the `/home/<user>/go` folder if it does not already exist.
 
-- Install the source code from GitHub
+- Create the following directory structure manually:
 
   ```console
-  go get github.com/awslabs/fargatecli
+  /home/<user>/go/src/github.com/awslabs/
+  ```
+
+- Git clone this repo inside the `awslabs` folder above.
+
+- Update your git remote to point to our forked repo and not the original repo:
+
+  ```console
+  git remote set-url origin git@github.com:AmbientAI/fargatecli.git
   ```
 
 - Run `dep ensure` to install required dependencies

@@ -5,35 +5,36 @@
 package client
 
 import (
+	reflect "reflect"
+
 	route53 "github.com/awslabs/fargatecli/route53"
 	gomock "github.com/golang/mock/gomock"
-	reflect "reflect"
 )
 
-// MockClient is a mock of Client interface
+// MockClient is a mock of Client interface.
 type MockClient struct {
 	ctrl     *gomock.Controller
 	recorder *MockClientMockRecorder
 }
 
-// MockClientMockRecorder is the mock recorder for MockClient
+// MockClientMockRecorder is the mock recorder for MockClient.
 type MockClientMockRecorder struct {
 	mock *MockClient
 }
 
-// NewMockClient creates a new mock instance
+// NewMockClient creates a new mock instance.
 func NewMockClient(ctrl *gomock.Controller) *MockClient {
 	mock := &MockClient{ctrl: ctrl}
 	mock.recorder = &MockClientMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockClient) EXPECT() *MockClientMockRecorder {
 	return m.recorder
 }
 
-// CreateAlias mocks base method
+// CreateAlias mocks base method.
 func (m *MockClient) CreateAlias(arg0 route53.CreateAliasInput) (string, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CreateAlias", arg0)
@@ -42,13 +43,13 @@ func (m *MockClient) CreateAlias(arg0 route53.CreateAliasInput) (string, error) 
 	return ret0, ret1
 }
 
-// CreateAlias indicates an expected call of CreateAlias
+// CreateAlias indicates an expected call of CreateAlias.
 func (mr *MockClientMockRecorder) CreateAlias(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateAlias", reflect.TypeOf((*MockClient)(nil).CreateAlias), arg0)
 }
 
-// CreateResourceRecord mocks base method
+// CreateResourceRecord mocks base method.
 func (m *MockClient) CreateResourceRecord(arg0 route53.CreateResourceRecordInput) (string, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CreateResourceRecord", arg0)
@@ -57,13 +58,13 @@ func (m *MockClient) CreateResourceRecord(arg0 route53.CreateResourceRecordInput
 	return ret0, ret1
 }
 
-// CreateResourceRecord indicates an expected call of CreateResourceRecord
+// CreateResourceRecord indicates an expected call of CreateResourceRecord.
 func (mr *MockClientMockRecorder) CreateResourceRecord(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateResourceRecord", reflect.TypeOf((*MockClient)(nil).CreateResourceRecord), arg0)
 }
 
-// ListHostedZones mocks base method
+// ListHostedZones mocks base method.
 func (m *MockClient) ListHostedZones() (route53.HostedZones, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "ListHostedZones")
@@ -72,7 +73,7 @@ func (m *MockClient) ListHostedZones() (route53.HostedZones, error) {
 	return ret0, ret1
 }
 
-// ListHostedZones indicates an expected call of ListHostedZones
+// ListHostedZones indicates an expected call of ListHostedZones.
 func (mr *MockClientMockRecorder) ListHostedZones() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListHostedZones", reflect.TypeOf((*MockClient)(nil).ListHostedZones))
